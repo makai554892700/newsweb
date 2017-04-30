@@ -40,7 +40,7 @@ public class WangYiNewsUtils {
                 public void onCallback(int status, String message, Map<String, List<String>> heard, byte[] data) {
                     if (status == 200 && data != null) {
                         try {
-                            new NewsService().saveNewsList(getBaseNewssByJsonStr(new String(data)));
+                            new NewsService().saveNewsList(getBaseNewssByJsonStr(new String(data, "utf-8")));
                         } catch (Exception e) {
                             System.out.println("e=" + e);
                         }
