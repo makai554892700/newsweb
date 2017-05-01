@@ -21,7 +21,7 @@ public class NewsService {
     public List<BaseNews> getNews(String type, int page, int num) {
         List<BaseNews> result = new ArrayList<BaseNews>();
         if (type != null && !type.isEmpty() && page >= 0 && num > 0) {
-            List<Record> records = Db.find(find_news, type, page, num);
+            List<Record> records = Db.find(find_news, type, page * num, num);
             if (records != null) {
                 for (Record record : records) {
                     BaseNews baseNews = new BaseNews() {
